@@ -1,18 +1,27 @@
 #include <iostream>
+using namespace std;
+
 void stringchet(int x);
 
 int main() {
     int a;
-    std::cout << "Введите число" ;
-    std::cin >> a;
+    
+    cout << "Введите число: ";
+    while (!(cin >> a)) {
+        cout << "Ошибка! Введите число: ";
+        cin.clear();
+        cin.ignore(10000, '\n');
+    }
+    
     stringchet(a);
     return 0;
 }
+
 void stringchet(int x) {
-    std::string result;
+    string result;
     for (int i = 0; i <= x; i += 2) {
         if (!result.empty()) result += " ";
-        result += std::to_string(i);
+        result += to_string(i);
     }
-    std::cout << result << std::endl;
+    cout << result << endl;
 }
